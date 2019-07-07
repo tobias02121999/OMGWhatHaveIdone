@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37825eaefb592945865a10957d67051, type: 3}
+  m_Name: Monitor
+  m_EditorClassIdentifier: 
+  currPreset:
+    useBottomNoise: 0
+    bottomHeight: 0.04
+    bottomIntensity: 1
+    useBottomStretch: 0
+    _bottomNoiseMat: {fileID: 0}
+    resolutionMode: 0
+    resolutionModeIndex: 0
+    resolution: {x: 1, y: 1}
+    pixelSize: 1
+    dither: 0
+    opacity: 0
+    colorPresetIndex: 0
+    f_show_colorPalette: 0
+    enableColorPalette: 0
+    _enableTVmode: 1
+    _VHS_Material: {fileID: 0}
+    _VHSNoise: {fileID: 0}
+    _textureIntensity: 1.3
+    _VerticalOffsetFrequency: 0
+    _verticalOffset: 0.076
+    _offsetColor: 0.0108
+    _OffsetDistortion: 1210
+    _scan: 0
+    _adjustLines: 2
+    _scanLinesColor: {r: 0, g: 0, b: 0, a: 0}
+    _TV_Material: {fileID: 0}
+    _hardScan: -8
+    _resolution: 1
+    maskDark: 0.5
+    maskLight: 1.5
+    warp: {x: 0, y: 0, z: 0, w: 0}
+    sh_first: {fileID: 0}
+    sh_second: {fileID: 0}
+    sh_third: {fileID: 0}
+    sh_fourth: {fileID: 0}
+    sh_clear: {fileID: 0}
+    sh_tape: {fileID: 0}
+    m_1: {fileID: 0}
+    m_2: {fileID: 0}
+    m_3: {fileID: 0}
+    m_4: {fileID: 0}
+    m_clear: {fileID: 0}
+    m_tape_noise: {fileID: 0}
+    enableCustomTexture: 0
+    bypassTex: {fileID: 0}
+    spriteTex: {fileID: 0}
+    f_show_Bleed: 0
+    f_show_Fisheye: 0
+    f_show_Vignette: 0
+    f_show_Noise: 0
+    f_show_Jitter: 0
+    f_show_Signal: 0
+    f_show_Artefacts: 0
+    f_show_Extra: 0
+    f_show_Bypass: 0
+    f_show_TV_mode: 1
+    f_show_Bottom_Noise_mode: 0
+    b_Mode: 0
+    b_Bleed: 0
+    b_LinesMode: 0
+    b_ScreenLinesNum: 1080
+    b_BleedAmount: 1.24
+    b_BleedDebug: 0
+    b_BleedLength: 24
+    b_BleedCurveEditMode: 0
+    b_BleedCurveSync: 0
+    b_BleedCurve1:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: -1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    b_BleedCurve2:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.5
+        inSlope: 0
+        outSlope: -0.5
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.5
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    b_BleedCurve3:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.5
+        inSlope: 0
+        outSlope: -0.5
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.5
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    f_Fisheye: 1
+    f_FisheyeBend: 1
+    f_FisheyeType: 0
+    f_FisheyeSize: 1.5
+    f_CutoffX: 1
+    f_CutoffY: 1
+    f_FadeX: 20
+    f_FadeY: 20
+    v_Vignette: 0
+    v_VignetteAmount: 1
+    v_VignetteSpeed: 1
+    n_enableNoise: 0
+    n_NoiseMode: 1
+    n_NoiseLinesAmountY: 220
+    n_NoiseSignalProcessing: 0.1
+    f_Granularity: 0
+    f_GranularityAmount: 0.09
+    f_SignalNoise: 1
+    f_SignalNoiseAmount: 0.2
+    f_SignalNoisePower: 0.68
+    f_TapeNoise: 1
+    f_TapeNoiseTH: 0.68
+    f_TapeNoiseAmount: 1
+    f_TapeNoiseSpeed: 1
+    f_LineNoise: 1
+    f_LineNoiseAmount: 1
+    f_LineNoiseSpeed: 3
+    j_enableJitter: 0
+    j_ScanLines: 0
+    j_ScanLinesWidth: 15
+    j_LinesFloat: 0
+    j_LinesSpeed: 1
+    j_Stretch: 0
+    j_JitterHorizontal: 0
+    j_JitterHorizAmount: 0.2
+    j_JitterVertical: 1
+    j_VertAmount: 1
+    j_VertSpeed: 1
+    j_TwitchHorizontal: 0
+    j_TwitchHorizFreq: 1
+    j_TwitchVertical: 0
+    j_TwitchVertFreq: 1
+    p_PictureCorrection: 0
+    p_PictureCorr1: 0
+    p_PictureCorr2: 0
+    p_PictureCorr3: 0
+    p_PictureShift1: 1
+    p_PictureShift2: 1
+    p_PictureShift3: 1
+    p_Gamma: 1
+    a_Artefacts: 0
+    a_ArtefactsMode: 0
+    a_ArtefactsThreshold: 0.1
+    a_ArtefactsAmount: 2
+    a_ArtefactsFadeAmount: 0.82
+    a_ArtefactsColor: {r: 1, g: 0.8, b: 0.2, a: 1}
+    a_ArtefactsDebug: 0
+    independentTimeOn: 0

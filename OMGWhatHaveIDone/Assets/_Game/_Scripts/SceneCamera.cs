@@ -14,9 +14,12 @@ public class SceneCamera : MonoBehaviour
     public Button buttonBack1;
     public Button buttonBack2;
     public Button buttonBack3;
+    public Button buttonBack4;
 
     public Button[] consoleButton;
     public Button coffeeButton;
+    public Button posterButton;
+    public Button nextLevelButton;
 
     public GameObject[] roomCamObject;
     public GameObject[] roomCanvObject;
@@ -24,13 +27,16 @@ public class SceneCamera : MonoBehaviour
     public Animator nukeAnimator;
 
     public IndicatorLight indicatorLightScript;
+    public IndicatorLight modeLightScript;
+    public IndicatorLight overrideSwitchScript;
 
     public ParticleSystem coffeeParticleSystem;
 
-    public GameObject gameOverTextObject;
-    public GameObject victoryTextObject;
-
     public int roomAmount;
+    public int levelID;
+
+    // Initialize the private variables
+    bool victory;
 
     // Run this code once at the start
     void Start()
@@ -43,14 +49,26 @@ public class SceneCamera : MonoBehaviour
         buttonBack1.onClick.AddListener(delegate { SetRoom(0); });
         buttonBack2.onClick.AddListener(delegate { SetRoom(3); });
         buttonBack3.onClick.AddListener(delegate { SetRoom(0); });
+        buttonBack4.onClick.AddListener(delegate { SetRoom(3); });
 
+        posterButton.onClick.AddListener(delegate { SetRoom(4); });
         coffeeButton.onClick.AddListener(delegate { Proceed(); });
+
+        if (levelID == 0)
+            nextLevelButton.onClick.AddListener(NextLevel);
 
         for (int i = 0; i < consoleButton.Length; i++)
         {
             int id = i;
             consoleButton[i].onClick.AddListener(delegate { ConsoleButtonClick(id); });
         }
+    }
+
+    // Run this code every single update
+    void Update()
+    {
+        // Control main console tasks
+        ControlConsole();
     }
 
     // Set the current room
@@ -86,36 +104,79 @@ public class SceneCamera : MonoBehaviour
             case 2:
                 indicatorLightScript.state = 1;
                 break;
+
+            // Disable/enable coffee mode
+            case 3:
+                if (modeLightScript.state == 0)
+                    modeLightScript.state = 1;
+                else
+                    modeLightScript.state = 0;
+                break;
+
+            // Disable/enable the override switch
+            case 4:
+                if (overrideSwitchScript.state == 0)
+                    overrideSwitchScript.state = 1;
+                else
+                    overrideSwitchScript.state = 0;
+                break;
         }
+    }
+
+    // Control main console tasks
+    void ControlConsole()
+    {
+        if (modeLightScript.state == 1 && indicatorLightScript.state == 1 && overrideSwitchScript.state == 0)
+            modeLightScript.state = 0;
     }
 
     // Check the outcome of the action button
     void CheckOutcome()
     {
-        if (indicatorLightScript.state == 0)
-            LaunchNukes();
-        else
-            MakeCoffee();
+        switch (levelID)
+        {
+            case 0:
+                if (indicatorLightScript.state == 0)
+                    LaunchNukes();
+                else
+                    MakeCoffee();
+                break;
+
+            case 1:
+                if (indicatorLightScript.state == 0 || modeLightScript.state == 0)
+                    LaunchNukes();
+                else
+                    MakeCoffee();
+                break;
+        }
     }
 
     // Launch the nukes
     void LaunchNukes()
     {
         nukeAnimator.SetBool("Launch", true);
-        gameOverTextObject.SetActive(true);
+        SetRoom(6);
+        //gameOverTextObject.SetActive(true);
     }
 
     // Make coffee
     void MakeCoffee()
     {
         coffeeParticleSystem.Play();
-        victoryTextObject.SetActive(true);
+        victory = true;
+        //victoryTextObject.SetActive(true);
     }
 
-    // Proceed to the next level if possible
+    // Proceed to the victory screen if possible
     void Proceed()
     {
-        if (victoryTextObject.activeSelf)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (victory)
+            SetRoom(5);
+    }
+
+    // Load up the next level
+    void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
